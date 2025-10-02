@@ -1,7 +1,7 @@
 from rest_framework import generics
 from .models import Pin
 from .serializers import PinSerializer, PinCreateSerializer
-
+from rest_framework import permissions
 
 
 class PinListView(generics.ListAPIView):
@@ -10,6 +10,7 @@ class PinListView(generics.ListAPIView):
     """
     queryset = Pin.objects.all()
     serializer_class = PinSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 class PinCreateView(generics.CreateAPIView):
     """
@@ -17,6 +18,7 @@ class PinCreateView(generics.CreateAPIView):
     """
     queryset = Pin.objects.all()
     serializer_class = PinCreateSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class PinDeleteView(generics.DestroyAPIView):
@@ -25,6 +27,7 @@ class PinDeleteView(generics.DestroyAPIView):
     """
     queryset = Pin.objects.all()
     serializer_class = PinSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class PinUpdateView(generics.UpdateAPIView):
@@ -33,6 +36,7 @@ class PinUpdateView(generics.UpdateAPIView):
     """
     queryset = Pin.objects.all()
     serializer_class = PinSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 class PinDetailView(generics.RetrieveAPIView):
     """
@@ -40,3 +44,4 @@ class PinDetailView(generics.RetrieveAPIView):
     """
     queryset = Pin.objects.all()
     serializer_class = PinSerializer
+    permission_classes = [permissions.IsAuthenticated]

@@ -6,7 +6,7 @@ from apps.users.serializers import UserSerializer
 User = get_user_model()
 
 
-class BoardCreateSerializer(serializers.ModelSerializer):
+class BoardSerializer(serializers.ModelSerializer):
     owner = UserSerializer(read_only=True)
 
     class Meta:
